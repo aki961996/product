@@ -2,30 +2,24 @@
 @section('content')
 @section('title', 'List Products')
 
+
+<!-- Delete Confirmation Modal -->
+@include('modal.deleteModel')
+<!-- Delete Confirmation Modal -->
+
 <div class="content-wrapper">
-
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-12">
-                    <h1>Products List (Total : {{$product->total()}})</h1>
-                </div>
-
-                <div class="col-sm-12 " style="text-align: right">
-                    <a class="btn btn-primary" href="{{route('products.create')}}">Create Product</a>
-                </div>
-
+    <div class="row mx-0">
+        <div class="col-12 card card-primary">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>Products</h1>
+                <a class="btn btn-primary" href="{{route('products.create')}}">Add Product</a>
             </div>
         </div>
-    </section>
+    </div>
 
     {{-- search --}}
     <div class="card">
-        <div class="card-header">
-            <div class="card-title">
-                Search products list
-            </div>
-        </div>
+
         <form action="" method="get">
             <div class="card-body">
                 <div class="row">
@@ -66,7 +60,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <div class="card-title">
-                                            Products List
+                                            <h5>Products List (Total : {{$product->total()}})</h5>
                                         </div>
                                     </div>
                                     <!-- /.card-header -->
@@ -98,14 +92,8 @@
                                                             <a class="btn btn-primary mr-2"
                                                                 href="{{ route('products.edit', encrypt($products->id)) }}">Edit</a>
 
-                                                            <form method="POST"
-                                                                action="{{ route('products.destroy', encrypt($products->id)) }}">
-                                                                @csrf
-                                                                @method('DELETE')
-
-                                                                <button class="btn btn-danger"
-                                                                    type="submit">Delete</button>
-                                                            </form>
+                                                            <button class="btn btn-danger"
+                                                                onclick="confirmDelete('{{ encrypt($products->id) }}')">Delete</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -129,8 +117,13 @@
             </div>
         </div>
     </section>
-
-
 </div>
-
+<script>
+    function confirmDelete(productId) {
+        var url = "{{ route('products.destroy', ':id') }}";
+        url = url.replace(':id', productId);
+        $('#deleteForm').attr('action', url);
+        $('#deleteModal').modal('show');
+    }
+</script>
 @endsection

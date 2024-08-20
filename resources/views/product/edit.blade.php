@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('content')
 @section('title', 'Edit Products')
-<div class="col-12 text-center  mt-3">
-    <h1>Edit Products</h1>
 
-    <div class="row">
-        <div class="col-md-12 text-right">
-            <a href="{{route('products.index')}}" class="btn btn-primary ">Back</a>
+<div class="row mx-0">
+    <div class="col-12 card card-primary">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Edit Products</h1>
+            <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
         </div>
     </div>
 </div>
 
-</div>
+
 
 <div class="col-md-6 offset-sm-3 mt-4">
 
@@ -24,7 +24,7 @@
                     <label for="">Product Name</label>
 
                     <input type="text" class="form-control" name="product_name" id="product_name"
-                        value="{{$product->product_name}}" placeholder="Enter name">
+                        value="{{$product->product_name}}" placeholder="Enter product name">
                     <div style="color: red">{{$errors->first('product_name')}}</div>
 
                 </div>
@@ -50,5 +50,5 @@
     </div>
     </form>
 </div>
-</div>
+
 @endsection
