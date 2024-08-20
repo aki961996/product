@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('description');
             $table->integer('price');
-            $table->boolean('available')->default(1)->comment('1:available, 0:not available');
+           
             $table->timestamps();
         });
     }

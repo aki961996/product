@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'product_name' => $this->faker->word,
             'description' => $this->faker->sentence,
             'price' => $this->faker->numberBetween(100, 10000),
-            'available' => $this->faker->boolean,
+
         ];
     }
 }

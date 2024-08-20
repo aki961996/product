@@ -113,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </div>
         </div>
     </section>

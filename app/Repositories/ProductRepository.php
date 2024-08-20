@@ -10,7 +10,7 @@ class ProductRepository implements ProductRepositoryInterface
     public function getSearchProducts(array $filters)
     {
         $query = Product::query();
-        $query->where('available', '=', 1);
+
         if (isset($filters['name']) && !empty($filters['name'])) {
             $query->where('product_name', 'like', '%' . $filters['name'] . '%');
         }
