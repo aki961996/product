@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@section('title', 'Products Create')
+@section('title', 'Add Products')
 <div class="col-12 text-center  mt-3">
     <h1>Create Products</h1>
 
@@ -44,7 +44,7 @@
                 <div style="color: red">{{$errors->first('price')}}</div>
             </div>
     </div>
-    <!-- /.card-body -->
+
     <div class="card-footer">
         <button type="submit" class="btn btn-primary">Add Product</button>
     </div>

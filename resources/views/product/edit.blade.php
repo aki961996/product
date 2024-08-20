@@ -19,7 +19,6 @@
         <form action="{{ route('products.update', $product) }}" method="post">
             @csrf
             @method('PATCH')
-            {{-- <input type="hidden" name="id" value="{{$product->id }}"> --}}
             <div class="card-body">
                 <div class="form-group">
                     <label for="">Product Name</label>

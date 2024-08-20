@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@section('title', 'Products List')
+@section('title', 'List Products')
 
 <div class="content-wrapper">
 
@@ -16,7 +16,7 @@
                 </div>
 
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
 
     {{-- search --}}
@@ -51,7 +51,9 @@
         </form>
     </div>
     {{-- searh --}}
+    {{-- msg --}}
     @include('message')
+    {{-- msg --}}
 
 
     <section class="content">
